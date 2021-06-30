@@ -5,7 +5,7 @@ import ViewCardList from '../Views/ViewCardList'
 const CardList = () => {
 
     const fetchUrl=`https://www.scoopwhoop.com/api/v4/read/all/`;
-    const [nextOffset,articles,isLoading] = useFetch(fetchUrl,0,8);
+    const [nextOffset,articles,isLoading] = useFetch(fetchUrl,0,20);
 
     if(!isLoading){
         console.log(nextOffset)
