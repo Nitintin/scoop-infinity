@@ -8,7 +8,8 @@ const useFetch = (fetchUrl,offset,limit=8) => {
     const [articles,setArticles]=useState([]);
 
     useEffect(()=>{
-        const fetchData = async ()=>{
+        //self invoking asynchronous arrow function
+        (async ()=>{
             const result = await axios.get(fetchUrl,{
                 params:{
                     offset:offset,
@@ -16,12 +17,11 @@ const useFetch = (fetchUrl,offset,limit=8) => {
                 }
             });
 
+            setArticles(prevBooks=>[...prevBooks,...result.data.data]);
             setNextOffset(result.data.next_offset);
-            setArticles(result.data.data);
             setIsLoading(false);
-        }
+        })();
 
-        fetchData();
     },[fetchUrl,offset,limit]);
 
 
