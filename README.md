@@ -1,10 +1,28 @@
-# Getting Started with Create React App
+# SCOOP WHOOOOOOOOOOP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Hi Buddy,
 
-## Available Scripts
+This repo is made to showcase my react JS skills. I have used all advanced technolgies and concepts to achieve the desired output. Check the list below
 
-In the project directory, you can run:
+## React Hooks
+
+The entire project is build using functionals components AKA Hooks. Inbuild hooks such as useState, useEffect & useRef are being widely used over this project.
+
+## Custom Hooks
+
+To fetch data, i have used custom hook. This helps to achieve modularity in our code
+
+## Material UI
+
+I have used Material-UI to showcase my level of comfort with it. It is mostly used to impart responsivness to the website using dynamic GRID layout
+
+## Node SASS
+
+I have deliberately used node-sass to demonstrate my knowledge and understanding of using CSS precompilers. 
+
+## Single Responsibilty Principle 
+
+I have made sure to segregate UI and logic so that SRP principle is followed through out
 
 ### `yarn start`
 
