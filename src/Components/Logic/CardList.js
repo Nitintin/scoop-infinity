@@ -20,7 +20,6 @@ const CardList = () => {
             }
 
             observerRef.current = new IntersectionObserver(observerEntry => {
-                console.log(observerEntry)
                 if(observerEntry[0].isIntersecting){
                     setInitOffSet(prevOffset => prevOffset+nextOffset)
                 }
@@ -42,7 +41,7 @@ const CardList = () => {
 
                                 return (
                                     <Card 
-                                        key={item.slug} 
+                                        key={item.slug+index} 
                                         item={item} 
                                         baseUrl={baseUrl}
                                         reference={lastArticleRef}
@@ -51,7 +50,7 @@ const CardList = () => {
                             }else{
                                 return (
                                     <Card 
-                                        key={item.slug} 
+                                        key={item.slug+index} 
                                         item={item} 
                                         baseUrl={baseUrl}
                                         reference={null}

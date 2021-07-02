@@ -1,21 +1,12 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import List from '@material-ui/core/List';
-import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import SideDrawer from './SideDrawer'
 
 const drawerWidth = 370;
 
@@ -43,21 +34,6 @@ const useStyles = makeStyles((theme) => ({
     hide: {
         display: 'none',
     },
-    drawer: {
-        width: "100%",
-        flexShrink: 0,
-    },
-    drawerPaper: {
-        width: "100%",
-    },
-    drawerHeader: {
-        display: 'flex',
-        alignItems: 'center',
-        padding: theme.spacing(0, 1),
-        // necessary for content to be below app bar
-        ...theme.mixins.toolbar,
-        justifyContent: 'flex-start',
-    },
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
@@ -78,22 +54,17 @@ const useStyles = makeStyles((theme) => ({
 
 const Navbar = () => {
     const classes = useStyles();
-    const theme = useTheme();
     const [open, setOpen] = React.useState(false);
 
     const handleDrawerOpen = () => {
         setOpen(true);
     };
 
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
-
     return (
         <div className={classes.root}>
             <CssBaseline />
             <AppBar
-                position="fixed"
+                position="absolute"
                 className={clsx(classes.appBar, {
                     [classes.appBarShift]: open,
                 })}
@@ -101,9 +72,9 @@ const Navbar = () => {
 
                 <Toolbar>
                     <div className="navTop">
-                        <svg class="outoff-page"> <defs><linearGradient id="yello_linear" x1=".5" x2="102.5" y2="79" gradientUnits="userSpaceOnUse"><stop stop-color="#1B91FF"></stop><stop offset="1" stop-color="#9F49E3"></stop></linearGradient></defs> </svg>
-                        <div class="nav__left">
-                            <div class="nav__logo">
+                        <svg className="outoff-page"> <defs><linearGradient id="yello_linear" x1=".5" x2="102.5" y2="79" gradientUnits="userSpaceOnUse"><stop stopColor="#1B91FF"></stop><stop offset="1" stopColor="#9F49E3"></stop></linearGradient></defs> </svg>
+                        <div className="nav__left">
+                            <div className="nav__logo">
                                 <a aria-label="ScoopWhoop" href="/?ref=nav_list">
                                     <svg width="92" height="68" fill="none">
                                         <path d="M2.581 68l-.608-7.96-.634-8.235c-.175-2.28-.347-4.562-.515-6.844L.5 40.688v-.296l6.73-1.065c.295 6.709.585 13.4.868 20.076.235.044.304-.054.316-.27.162-3.098.33-6.193.5-9.286.194-3.598.394-7.197.603-10.796a.58.58 0 0 1 .023-.092l9.616-1.525 1.126 20.04.29-.024c.29-6.796.579-13.575.885-20.38l6.75-1.075c-.043.617-.083 1.21-.127 1.804a5139.52 5139.52 0 0 0-.413 5.53c-.16 2.122-.319 4.244-.475 6.366l-.405 5.474c-.155 2.095-.311 4.19-.47 6.286-.063.846-.13 1.694-.179 2.54 0 .214-.084.282-.29.311-2.894.453-5.789.912-8.683 1.377l-1.737.267-.935-20.052-.29.03-.99 20.375-2.188.35-7.584 1.187c-.24.038-.478.098-.718.145L2.581 68z" fill="url(#yello_linear)">
@@ -129,32 +100,35 @@ const Navbar = () => {
                                     </svg>
                                 </a>
                             </div>
-                            <ul class="nav__lists">
-                                <li class="nav__list ">
-                                    <a aria-label="ScoopWhoop Trending" class="nav-trend" href="/?ref=nav_top">TRENDING
+                            <ul className="nav__lists">
+                                <li className="nav__list ">
+                                    <a aria-label="ScoopWhoop Trending" className="nav-trend" href="/?ref=nav_top">TRENDING
                                     </a>
                                 </li>
-                                <li class="nav__list ">
-                                    <a aria-label="ScoopWhoop Video" class="nav-watch" href="/watch/?ref=nav_top">VIDEOS
+                                <li className="nav__list ">
+                                    <a aria-label="ScoopWhoop Video" className="nav-watch" href="/watch/?ref=nav_top">VIDEOS
                                     </a>
                                 </li>
-                                <li aria-label="ScoopWhoop Stories" class="nav__list is-active">
-                                    <a class="nav-read" href="/read/?ref=nav_top">STORIES
+                                <li aria-label="ScoopWhoop Stories" className="nav__list is-active">
+                                    <a className="nav-read" href="/read/?ref=nav_top">STORIES
                                     </a>
                                 </li>
-                                <li class="nav__list ">
-                                    <a aria-label="ScoopWhoop Quizzes" class="nav-play" href="/play/?ref=nav_top">QUIZZES
+                                <li className="nav__list ">
+                                    <a aria-label="ScoopWhoop Quizzes" className="nav-play" href="/play/?ref=nav_top">QUIZZES
                                     </a>
                                 </li>
-                                <li class="nav__list ">
-                                    <a aria-label="ScoopWhoop MEMES" class="nav-laugh" href="/laugh/?ref=nav_top">MEMES
+                                <li className="nav__list ">
+                                    <a aria-label="ScoopWhoop MEMES" className="nav-laugh" href="/laugh/?ref=nav_top">MEMES
                                     </a>
                                 </li>
-                                <li class="nav__list">
-                                    <a aria-label="ScoopWhoop Spotlight" class="nav-spotlight" href="/spotlight/?ref=nav_top">SPOTLIGHT
+                                <li className="nav__list">
+                                    <a aria-label="ScoopWhoop Spotlight" className="nav-spotlight" href="/spotlight/?ref=nav_top">SPOTLIGHT
                                     </a>
                                 </li>
                             </ul>
+                        </div>
+                        <div className="nav__center_mobile">
+                            <svg width="48" height="37" xmlns="http://www.w3.org/2000/svg"> <g fill="#fff" fillRule="nonzero"> <path d="M48 0v.422c-.017.068-.045.134-.05.202-.146 1.864-.29 3.728-.433 5.592a15709.4 15709.4 0 00-.576 7.547c-.214 2.766-.43 5.531-.65 8.297l-.604 7.786c-.046.595-.055.585-.668.678-3.266.495-6.531.992-9.796 1.492-.502.076-1.004.146-1.535.224l-1.051-21.604-.326.062-1.109 21.927-11.94 1.82-2.353-29.71 7.566-1.15.992 21.61c.234.035.338-.03.35-.264.077-1.496.166-2.991.25-4.487l.39-6.864.471-8.16c.043-.739.089-1.478.134-2.23l10.79-1.645 1.264 21.588.326-.046.992-21.936L48 0zM16.268 15.937l-7.476 1.14v-.328-3.68c0-.12.006-.243-.011-.361-.034-.238-.103-.475-.392-.506-.286-.03-.537.08-.647.354a1.638 1.638 0 00-.108.585c-.01 1.096.01 2.192-.01 3.288-.013.677.288 1.162.896 1.407.503.203 1.046.327 1.581.436 1.191.242 2.35.571 3.484 1.013 1.44.56 2.242 1.624 2.605 3.049.117.458.18.928.187 1.4.022 1.578.036 3.158 0 4.735-.037 1.733-.45 3.364-1.568 4.758-1.023 1.277-2.394 2.045-3.933 2.542-1.838.594-3.73.896-5.665.778a7.701 7.701 0 01-1.943-.37c-1.75-.583-2.649-1.9-2.98-3.625A11.22 11.22 0 01.1 30.667C.074 29.3.091 27.932.092 26.565c0-.08.007-.159.012-.26l7.453-1.136v3.966c0 .12 0 .241.006.362.013.248.089.458.369.523.265.06.583-.082.679-.344.07-.193.103-.41.105-.616.01-1.086-.003-2.172.007-3.258.007-.646-.265-1.138-.87-1.355-.706-.252-1.438-.44-2.17-.612-1.012-.239-2.007-.516-2.965-.93-1.485-.639-2.232-1.813-2.56-3.307a3.306 3.306 0 01-.09-.687c-.013-2.209-.211-4.426.135-6.622.42-2.671 1.999-4.482 4.511-5.493 2.214-.891 4.528-1.265 6.92-1.058 2.528.22 4.167 1.772 4.5 4.278.103.773.116 1.562.129 2.344.02 1.185.005 2.37.005 3.577z"></path> </g> </svg>
                         </div>
                     </div>
                     <div className="nav__right"></div>
@@ -171,39 +145,7 @@ const Navbar = () => {
                     </IconButton>
                 </Toolbar>
             </AppBar>
-            <Drawer
-                className={classes.drawer}
-                variant="persistent"
-                anchor="right"
-                open={open}
-                classes={{
-                    paper: classes.drawerPaper,
-                }}
-            >
-                <div className={classes.drawerHeader}>
-                    <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'rtl' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </div>
-                <Divider />
-                <List>
-                    {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-                <Divider />
-                <List>
-                    {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                        <ListItem button key={text}>
-                            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItem>
-                    ))}
-                </List>
-            </Drawer>
+            <SideDrawer open={open} setOpen={setOpen}/>
         </div>
     );
 }
