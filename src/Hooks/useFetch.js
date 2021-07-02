@@ -17,7 +17,8 @@ const useFetch = (fetchUrl, offset, limit = 8) => {
                     offset: offset,
                     limit: limit
                 },
-                cancelToken: new axios.CancelToken(c => cancelMethod = c) //creates a method which can be fired for cancelling the request
+                //creates a method which can be fired for cancelling the request
+                cancelToken: new axios.CancelToken(c => cancelMethod = c) 
             }).catch(error => {
                     if (axios.isCancel(error)) return
                 }

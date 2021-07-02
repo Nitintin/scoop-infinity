@@ -5,11 +5,11 @@ import SwiperSlider from './SwiperSlider'
 
 const Header = () => {
     return (
-        <header>
+        <div className="headerContainer">
             <Navbar/>
             <SwiperSlider/>
             <Feature/>
-        </header>
+        </div>
     )
 }
 

@@ -4,21 +4,33 @@ import Card from '../Views/Card'
 import {Grid} from '@material-ui/core';
 
 const CardList = () => {
-
     const fetchUrl=`https://www.scoopwhoop.com/api/v4/read/all/`;
-    const baseUrl = 'https://www.scoopwhoop.com/';
-
+    const baseUrl = 'https://www.scoopwhoop.com/'; 
     const [initOffSet,setInitOffSet]=useState(0);
     const initLimit = 8;
-    const oberserRef = useRef();
-    //const lastArticleRef = useCallback(()=>{},[])
-    
-
-    // if(!isLoading){
-    //     console.log(oberserRef)
-    // }
 
     const [nextOffset,articles,isLoading] = useFetch(fetchUrl,initOffSet,initLimit);
+    const observerRef = useRef();
+
+    const lastArticleRef = useCallback((node)=>{
+        if(!isLoading){
+            //if observer already hold a element, remove it
+            if(observerRef.current){
+                observerRef.current.disconnect();
+            }
+
+            observerRef.current = new IntersectionObserver(observerEntry => {
+                console.log(observerEntry)
+                if(observerEntry[0].isIntersecting){
+                    setInitOffSet(prevOffset => prevOffset+nextOffset)
+                }
+            })
+
+            if(node){
+                observerRef.current.observe(node)
+            }
+        }
+    },[isLoading,nextOffset])
 
     if(!isLoading){
         return (
@@ -33,7 +45,7 @@ const CardList = () => {
                                         key={item.slug} 
                                         item={item} 
                                         baseUrl={baseUrl}
-                                        reference={oberserRef}
+                                        reference={lastArticleRef}
                                     />
                                 )
                             }else{
@@ -49,19 +61,11 @@ const CardList = () => {
                         })
                     }
                 </Grid>
-                <hr/>
-                <div className="loadBtn">
-                    <button 
-                        className="loadMoreBtn" 
-                        onClick={()=>setInitOffSet(prevOffset => prevOffset+nextOffset)}>
-                        Load More
-                    </button>
-                </div>
             </>
         )
+    }else{
+        return <h2>Loading..</h2>;
     }
-
-    return <div>Loading..</div>;
 }
 
 export default CardList
