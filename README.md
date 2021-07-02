@@ -12,6 +12,8 @@ The entire project is build using functionals components AKA Hooks. Inbuild hook
   ## Infinite Scrolling
   Infinite scrolling has been added to fetch articles on the go. It fetches 8 articles per scroll. It fetches new article once the user reaches to the last of currently fetched articles. I have used IntersectionObserver provided by JS to keep observing this last article on the page.
 
+# Extra Points?
+I heard somewhere that there are extra point for uploading the project on github? I will do one better. I have uploaded this project to a live server. Feel free to test. Link - https://scoop-whoop-dhoop.netlify.app/
 
 # DEPENDENCIES ADDED
 
@@ -36,7 +38,7 @@ Single responsibilty principle. I have made sure to segregate UI/Views and logic
 ## DRY
 Do no repeat yourself principle. I have tried to make code as much modular as possible, by creating smaller components. This allows to use the code more efficiently without adding any duplicate code
 
-# HOW TO RUN 
+# HOW TO RUN ON LOCAL
 
 1. Take pull of this github repo
 2. Make sure to run 'npm install' command to install all the dependencies
