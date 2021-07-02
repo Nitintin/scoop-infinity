@@ -1,10 +1,10 @@
 import React from 'react'
 import {Grid} from '@material-ui/core';
 
-const Card = ({item,baseUrl}) => {
+const Card = ({item,baseUrl,reference}) => {
 
     return (
-        <Grid item xs ={12} sm={3}  className="cardContainer">
+        <Grid item xs ={12} sm={3}  className="cardContainer" ref={reference}>
             <div className="articleInfo">
                 <div className="imgContainer">
                     <a href={baseUrl+item.slug}>
