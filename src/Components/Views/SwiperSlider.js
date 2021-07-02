@@ -2,9 +2,10 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 
-const SlickSlider = () => {
+const SwiperSlider = () => {
     return (
         <Swiper
+            className="desktopSwiper"
             spaceBetween={50}
             slidesPerView={1}
             onSlideChange={() => console.log('slide change')}
@@ -31,4 +32,4 @@ const SlickSlider = () => {
     );
 }
 
-export default SlickSlider
+export default SwiperSlider

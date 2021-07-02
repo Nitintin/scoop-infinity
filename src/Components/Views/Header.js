@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from './Navbar'
 import Feature from './Feature'
-import SlickSlider from './SlickSlider'
+import SwiperSlider from './SwiperSlider'
 
 const Header = () => {
     return (
         <header>
             <Navbar/>
-            <SlickSlider/>
+            <SwiperSlider/>
             <Feature/>
         </header>
     )
