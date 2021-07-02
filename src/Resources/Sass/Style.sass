@@ -1,0 +1,77 @@
+
+.headerContainer
+    background: linear-gradient(136.04deg,#1b91ff -.78%,#9f49e3 92.66%) no-repeat
+    header
+        background-color: transparent
+        box-shadow: none
+        .navTop
+            &~button
+                @media (min-width: 700px)
+                    display: none
+
+.sideMenuIcons
+    justify-content: flex-end
+.side-nav__title
+    font-weight: 700
+    font-size: 24px
+    line-height: 28px
+    color: #1e1e1e
+    margin-bottom: 14px
+    text-align: left
+    padding: 0 8%
+.sideNav_content
+    display: block
+    font-size: 18px
+    line-height: 21px
+    color: #1b91ff
+    text-decoration: none
+    padding: 5px 0
+    position: relative
+.MuiDrawer-root .sideBarList
+    padding: 5%
+.desktopSwiper
+    @media (max-width: 700px)
+        display: none
+.outoff-page
+    position: fixed
+    top: -1000px
+
+.navTop
+    width: 100%
+    max-width: 1200px
+    display: -webkit-box
+    margin: 0 auto
+    padding-top: 16px
+    .nav__left
+        display: flex
+        @media (max-width: 700px)
+            display: none
+        .nav__logo
+            padding-right: 38px
+        .nav__lists
+            list-style: none
+            display: flex
+            -webkit-box-align: center
+            align-items: center
+            .nav__list
+                padding-left: 28px
+                padding-right: 28px
+                transition: transform .3s,-webkit-transform .3s,-o-transform .3s
+                &:hover
+                    transform: scale(1.25)
+                    transition: transform .3s,-webkit-transform .3s,-o-transform .3s
+                    transition-property: transform, -webkit-transform, -o-transform
+                    transition-duration: 0.3s, 0.3s, 0.3s
+                    transition-timing-function: ease, ease, ease
+                    transition-delay: 0s, 0s, 0s
+                a
+                    color: #1b91ff
+                    text-decoration: none
+                    font-size: 14px
+                    font-weight: 700
+                    letter-spacing: .03em
+    .nav__center_mobile
+        @media (min-width: 700px)
+            display: none
+
+

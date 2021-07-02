@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './Style.sass';
+import './Resources/Sass/Style.sass';
+import './Resources/Sass/Article.sass';
+import './Resources/Sass/Feature.sass';
+import './Resources/Sass/Slider.sass';
 
 ReactDOM.render(
   <React.StrictMode>
