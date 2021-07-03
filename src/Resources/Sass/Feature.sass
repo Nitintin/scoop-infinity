@@ -1,3 +1,5 @@
+@import ./_variables
+
 .featureContainer
     margin-top: 60px
     .trendingContainer
@@ -6,7 +8,7 @@
         overflow-x: auto
         padding-bottom: 50px
         .card
-            background-color: #fff
+            background-color: $background-color-white
         &>div
             width: 330px
             margin-right: 20px
@@ -40,7 +42,7 @@
                     text-decoration: none
                 .card-shareview
                     bottom: 13px
-                    color: #1b91ff
+                    color: $font-color-blue
                     font-size: 12px
                     line-height: 15px
                     .card-tag
@@ -65,7 +67,7 @@
             display: none
 
 .card-tag,.card-tag-new,.card-tag-r
-    color: #1b91ff
+    color: $font-color-blue
     display: block
     font-size: 13px
     font-weight: 700

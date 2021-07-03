@@ -1,3 +1,5 @@
+@import ./_variables
+
 .swiper-slider-custom
     background: url(https://s4.scoopwhoop.com/anj2/60547185c8d1115b02424f3a/77808a56-3907-44bd-a6f2-e270996c225c.jpg) rgba(0, 0, 0, 0.3)
     background-blend-mode: multiply
@@ -13,8 +15,8 @@
         right: 0
         text-align: left
         .read-tag
-            background: linear-gradient(136.04deg,#1b91ff -.78%,#9f49e3 92.66%) no-repeat
-            color: #fff
+            background: linear-gradient(136.04deg,$font-color-blue -.78%,#9f49e3 92.66%) no-repeat
+            color: $font-color-white
             display: inline-block
             font-size: 13px
             font-weight: 700
@@ -30,13 +32,13 @@
             margin: 0 0 20px
             max-width: 800px
             a
-                color: #fff
+                color: $font-color-white
                 text-decoration: none
         .read-more
             font-size: 14px
             font-weight: 500
             line-height: 142.97%
-            background: linear-gradient(136.04deg,#1b91ff -.78%,#9f49e3 92.66%) no-repeat
+            background: linear-gradient(136.04deg,$font-color-blue -.78%,#9f49e3 92.66%) no-repeat
             display: inline-block
             -webkit-background-clip: text!important
             -webkit-text-fill-color: transparent
