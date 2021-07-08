@@ -21,7 +21,7 @@ const CardList = () => {
 
             observerRef.current = new IntersectionObserver(observerEntry => {
                 if(observerEntry[0].isIntersecting){
-                    setInitOffSet(prevOffset => prevOffset+nextOffset)
+                    setInitOffSet(nextOffset)
                 }
             })
 
